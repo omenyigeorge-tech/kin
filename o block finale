@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O_Block for Study</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background: #4b6cb7;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    nav a {
+      margin: 0 1em;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2em;
+      animation: slideUp 1s ease-in-out;
+    }
+
+    button {
+      padding: 0.5em 1em;
+      background: #4b6cb7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+
+    #gallery {
+      margin-top: 1em;
+    }
+
+    .file-item {
+      background: #e0e0e0;
+      padding: 0.5em;
+      margin: 0.5em 0;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background: #ddd;
+      margin-top: 2em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📘 O_Block for Study</h1>
+    <nav>
+      <a href="#upload">Upload</a>
+      <a href="#revisions">Revision Papers</a>
+      <a href="#about">About Us</a>
+    </nav>
+  </header>
+
+  <section id="upload">
+    <h2>📤 Share Your Assignment</h2>
+    <form id="uploadForm">
+      <input type="file" accept="image/*,application/pdf,video/*" multiple />
+      <button type="submit">Post</button>
+    </form>
+    <div id="gallery"></div>
+  </section>
+
+  <section id="revisions">
+    <h2>📚 Sample Revision Papers</h2>
+    <ul>
+      <li><a href="physics_sample.pdf" target="_blank">Physics</a></li>
+      <li><a href="biology_sample.pdf" target="_blank">Biology</a></li>
+      <li><a href="chemistry_sample.pdf" target="_blank">Chemistry</a></li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>👨‍💻 About Us</h2>
+    <p>This website was designed by Joshua to help students share and access study materials easily. No login, no hassle — just learning.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 O_Block for Study</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const gallery = document.getElementById("gallery");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const files = e.target[0].files;
+      for (let file of files) {
+        const item = document.createElement("div");
+        item.className = "file-item";
+        item.textContent = `📎 ${file.name}`;
+        gallery.appendChild(item);
+      }
+    });
+  </script>
+</body>
+</html>
